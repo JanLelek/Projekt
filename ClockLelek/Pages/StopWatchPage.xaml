@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClockLelek.Pages.StopWatchPage"
+             BackgroundColor="Black">
+    <Grid RowDefinitions="*,*,50">
+        
+        <Label Text="00:00" x:Name="CasLabel" HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"></Label>
+        <ScrollView Grid.Row="1">
+            <ListView  BackgroundColor="Gray" x:Name="LapListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <Grid ColumnDefinitions="*,*,*">
+                            <Label Text="{Binding lap, StringFormat='#{0}'}" TextColor="white" FontSize="30" Grid.Column="0" HorizontalOptions="Center"/>
+                                <Label Text="{Binding fromLast, StringFormat='{0}'}" TextColor="white" FontSize="30" Grid.Column="1" HorizontalOptions="Center" />
+                                <Label Text="{Binding lapTime, StringFormat='{0}'}" TextColor="white" FontSize="30" Grid.Column="2" HorizontalOptions="Center" />
+
+                        </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*">
+            <Button x:Name="ResetBt" IsVisible="false" FontSize="17" BackgroundColor="Gray" TextColor="Black" Clicked="Reset_Clicked" Grid.Column="0" HorizontalOptions="End" Text="Reset" WidthRequest="150"></Button>
+            <Button x:Name="StartPauseBt" IsVisible="true" FontSize="17" TextColor="LightGreen" BackgroundColor="DarkGreen" Clicked="StartPause_Clicked" Grid.Column="1" HorizontalOptions="Center" WidthRequest="150" Text="Start"></Button>
+            <Button x:Name="LapBt" FontSize="17" IsVisible="false" BackgroundColor="Grey" TextColor="Black" Clicked="Lap_Clicked" Grid.Column="2" HorizontalOptions="Start" Text="Lap" WidthRequest="150"></Button>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClockLelek.Pages.TimerPage"
+             x:Name="TimerPageContent">
+    <Grid RowDefinitions="*,50" ColumnDefinitions="*,*,*" >
+
+        <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="2" x:Name="strankas" Fill="Green" VerticalOptions="End"  ScaleY="0" AnchorY="1">
+
+        </Rectangle>
+        <Grid ColumnDefinitions="*,*,*" IsVisible="true" Grid.ColumnSpan="3">
+            <Picker x:Name="HoursPicker" Title="Hours" FontSize="30" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" SelectedIndexChanged="Picker_SelectedIndexChanged">
+            </Picker>
+
+            <Picker x:Name="MinutesPicker" Title="Minutes" FontSize="30" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                </Picker>
+
+            <Picker x:Name="SecondsPicker" Title="Seconds" FontSize="30" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                </Picker>
+        </Grid>
+            <Label IsVisible="false" HorizontalOptions="Center" x:Name="casLabel" Text="00 00:00" TextColor="White" FontSize="60" Grid.ColumnSpan="3" VerticalOptions="Center">
+            </Label>
+
+        <Button WidthRequest="150" TextColor="White" BackgroundColor="Gray" IsEnabled="False" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" Grid.ColumnSpan="2" Text="Cancel" x:Name="CancelBt" Clicked="CancelBt_Clicked">
+
+        </Button>
+        <Button WidthRequest="150" IsEnabled="False" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" Grid.ColumnSpan="2" Grid.Column="1" Text="Start" x:Name="StartStopBt" TextColor="LightGreen" BackgroundColor="DarkGreen" Clicked="StartStopBt_Clicked">
+        </Button>
+
+    </Grid>
+
+</ContentPage>

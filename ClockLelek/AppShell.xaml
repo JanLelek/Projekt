@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ClockLelek.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ClockLelek"
+    xmlns:pages="clr-namespace:ClockLelek.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Timer">
+            <ShellContent Title="Timer" ContentTemplate="{DataTemplate pages:TimerPage}" Route="Pages.TimerPage" />
+
+        </Tab>
+        <Tab Title="StopWatch">
+            <ShellContent Title="StopWatch" ContentTemplate="{DataTemplate pages:StopWatchPage}" Route="Pages.StopWatchPage" />
+
+        </Tab>
+    </TabBar>
+    
+
+
+</Shell>
