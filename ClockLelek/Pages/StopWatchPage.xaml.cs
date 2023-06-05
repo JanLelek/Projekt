@@ -12,19 +12,19 @@ public partial class StopWatchPage : ContentPage
     bool isFirst = true;
     public class Lap
     {
-        public string lap {  get; set; }
+        public string lap {  get; set; }//získání a nastavení hodnoty vlastnosti.
         public string fromLast { get; set; }
         public string lapTime { get; set; }
     }
 
-    public ObservableCollection<Lap> lapList = new();
+    public ObservableCollection<Lap> lapList = new(); //umožňuje sledování změn v kolekci a automatickou aktualizaci datového zdroje.
 
     public StopWatchPage()
 	{
         InitializeComponent();
         timer = Dispatcher.CreateTimer();
-        timer.Interval = TimeSpan.FromMilliseconds(1);
-        timer.Tick += Timer_Tick;
+        timer.Interval = TimeSpan.FromMilliseconds(1); //interval časovače na 1 milisekundu.
+        timer.Tick += Timer_Tick; //Timer_Tick se bude volat při každém tiknutí časovače.
         LapListView.ItemsSource = lapList;
     }
 
