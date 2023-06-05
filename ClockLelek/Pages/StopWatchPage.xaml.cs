@@ -17,7 +17,7 @@ public partial class StopWatchPage : ContentPage
         public string lapTime { get; set; }
     }
 
-    public ObservableCollection<Lap> lapList = new(); //umožňuje sledování změn v kolekci a automatickou aktualizaci datového zdroje.
+    public ObservableCollection<Lap> lapList = new(); //umožňuje sledování změn a aktualizaci dat
 
     public StopWatchPage()
 	{
@@ -25,15 +25,15 @@ public partial class StopWatchPage : ContentPage
         timer = Dispatcher.CreateTimer();
         timer.Interval = TimeSpan.FromMilliseconds(1); //interval časovače na 1 milisekundu.
         timer.Tick += Timer_Tick; //Timer_Tick se bude volat při každém tiknutí časovače.
-        LapListView.ItemsSource = lapList;
+        LapListView.ItemsSource = lapList; //LapListView bude zobrazovat data z kolekce lapList
     }
 
     private void Timer_Tick(object sender, EventArgs e)
     {
         cas++;
         TimeSpan time = TimeSpan.FromMilliseconds(cas * 10);
-        string format = (time.TotalMinutes >= 1) ? @"mm\:ss\:ff" : @"ss\:ff";
-        CasLabel.Text = time.ToString(format);
+        string format = (time.TotalMinutes >= 1) ? @"mm\:ss\:ff" : @"ss\:ff"; //formát pro zobrazení času
+        CasLabel.Text = time.ToString(format); //zobrazení čaasu v labelu
     }
 
     private void Reset_Clicked(object sender, EventArgs e)
