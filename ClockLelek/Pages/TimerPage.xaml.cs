@@ -11,14 +11,14 @@ public partial class TimerPage : ContentPage
     IDispatcherTimer timer;
     int cas = 0;
     bool isRunning = false;
-    double totalnicas;
+    double totalnicas; // uchování celkového počtu sekund uplynulých od začátku
     bool firststart = true;
     string format;
 
     public TimerPage()
 	{
 		InitializeComponent();
-        HoursPicker.ItemsSource = hours;
+        HoursPicker.ItemsSource = hours; //nastavení zdroje dat pro picker
         MinutesPicker.ItemsSource = minutes;
         SecondsPicker.ItemsSource = seconds;
         timer = Dispatcher.CreateTimer();
@@ -36,7 +36,7 @@ public partial class TimerPage : ContentPage
         else
         {
             timerEnd();
-            DisplayAlert("�asova�", "�as vypr�el", "Ok");
+            DisplayAlert("Časovaè", "Čas vypršel", "Ok");
         }
     }
 
@@ -44,7 +44,6 @@ public partial class TimerPage : ContentPage
     {
         strankas.ScaleYTo(1, (uint)cas * 1000);
     }
-
     private void StartStopBt_Clicked(object sender, EventArgs e)
     {
         if (isRunning)
