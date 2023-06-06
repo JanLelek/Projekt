@@ -36,7 +36,7 @@ public partial class TimerPage : ContentPage
         else
         {
             timerEnd();
-            DisplayAlert("Časovaè", "Čas vypršel", "Ok");
+            DisplayAlert("Časovač", "Čas vypršel", "Ok");
         }
     }
 
